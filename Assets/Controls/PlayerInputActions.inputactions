@@ -13,6 +13,15 @@
                     "processors": "",
                     "interactions": "Hold",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Swap Character",
+                    "type": "Button",
+                    "id": "9953c72a-7fc2-4d29-86a6-f6b96881d6e5",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -70,6 +79,17 @@
                     "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "25cab99f-73cc-4811-bec9-e72bfe3e5b92",
+                    "path": "<Keyboard>/tab",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard + Mouse",
+                    "action": "Swap Character",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }

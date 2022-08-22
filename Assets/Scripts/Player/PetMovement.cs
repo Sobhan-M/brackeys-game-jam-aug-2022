@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerMovement : MonoBehaviour
+public class PetMovement : MonoBehaviour
 {
     [SerializeField] private float speed = 5f;
 
