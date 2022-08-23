@@ -133,7 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 274322396}
   - component: {fileID: 274322395}
-  - component: {fileID: 274322397}
+  - component: {fileID: 274322399}
   - component: {fileID: 274322393}
   - component: {fileID: 274322398}
   m_Layer: 0
@@ -163,7 +163,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!212 &274322395
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -231,19 +231,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &274322397
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 274322392}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71b3401cda52be0428ba89464a26b45b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 5
 --- !u!58 &274322398
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -260,6 +247,20 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &274322399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 274322392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8671fb82d553404d8ac94612b2e48c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  jumpSpeed: 5
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -465,7 +466,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!58 &1053037160
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -981,3 +982,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 262822d563edac942b4423a84da181f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  humanCharacter: {fileID: 1053037155}
+  dogCharacter: {fileID: 274322392}

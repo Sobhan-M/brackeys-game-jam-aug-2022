@@ -5,17 +5,20 @@ using UnityEngine.InputSystem;
 
 public class CharacterSwapper : MonoBehaviour
 {
+    [SerializeField] GameObject humanCharacter;
+    [SerializeField] GameObject dogCharacter;
+
     private PlayerInputActions playerInputActions;
     private PlayerMovement playerMovement;
-    private PetMovement petMovement;
-    private bool isPlayerInControl;
+    private PlayerMovement petMovement;
+    private bool isHumanInControl;
 
     private void Awake()
     {
         playerInputActions = new PlayerInputActions();
 
-        playerMovement = FindObjectOfType<PlayerMovement>();
-        petMovement = FindObjectOfType<PetMovement>();
+        playerMovement = humanCharacter.GetComponent<PlayerMovement>();
+        petMovement = dogCharacter.GetComponent<PlayerMovement>();
     }
 
     private void OnEnable()
@@ -31,17 +34,17 @@ public class CharacterSwapper : MonoBehaviour
 
     private void Start()
     {
-        isPlayerInControl = true;
+        isHumanInControl = true;
 
-        playerMovement.enabled = isPlayerInControl;
-        petMovement.enabled = !isPlayerInControl;
+        playerMovement.enabled = isHumanInControl;
+        petMovement.enabled = !isHumanInControl;
     }
 
     private void SwapCharacter()
     {
-        isPlayerInControl = !isPlayerInControl;
+        isHumanInControl = !isHumanInControl;
 
-        playerMovement.enabled = isPlayerInControl;
-        petMovement.enabled = !isPlayerInControl;
+        playerMovement.enabled = isHumanInControl;
+        petMovement.enabled = !isHumanInControl;
     }
 }
