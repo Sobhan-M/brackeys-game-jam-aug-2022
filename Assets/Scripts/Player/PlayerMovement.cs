@@ -47,7 +47,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {
-        if (playerCollider.IsTouchingLayers(LayerMask.GetMask("Floor")))
+        if (playerCollider.IsTouchingLayers(LayerMask.GetMask("Floor")) || playerCollider.IsTouchingLayers(LayerMask.GetMask("Ghost")))
         {
             float jumpX = rb.velocity.x;
             float jumpY = jumpSpeed;
