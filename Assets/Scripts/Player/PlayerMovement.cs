@@ -59,5 +59,23 @@ public class PlayerMovement : MonoBehaviour
         float velocityY = rb.velocity.y;
 
         rb.velocity = new Vector2(velocityX, velocityY);
+
+        AdjustSpriteDirection(velocityX);        
+    }
+
+    private void AdjustSpriteDirection(float newX)
+    {
+        if (newX < 0 && transform.localScale.x > 0)
+        {
+            Vector3 newScale = transform.localScale;
+            newScale.x = Mathf.Abs(newScale.x) * -1;
+            transform.localScale = newScale;
+        }
+        else if (newX > 0 && transform.localScale.x < 0)
+        {
+            Vector3 newScale = transform.localScale;
+            newScale.x = Mathf.Abs(newScale.x);
+            transform.localScale = newScale;
+        }
     }
 }
