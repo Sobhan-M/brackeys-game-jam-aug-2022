@@ -11,13 +11,13 @@ public class PlayerMovement : MonoBehaviour
     private PlayerInputActions playerInputActions;
     private InputAction movement;
     private Rigidbody2D rb;
-    private Collider2D playerCollider;
+    [SerializeField] private Collider2D playerFloorCollider;
 
     private void Awake()
     {
         playerInputActions = new PlayerInputActions();
         rb = GetComponent<Rigidbody2D>();
-        playerCollider = GetComponent<Collider2D>();
+        // playerFloorCollider = GetComponent<Collider2D>();
     }
 
     private void OnEnable()
@@ -39,20 +39,25 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        float velocityX = movement.ReadValue<Vector2>().x * speed;
-        float velocityY = rb.velocity.y;
-
-        rb.velocity = new Vector2(velocityX, velocityY);
+        Move();
     }
 
     private void Jump()
     {
-        if (playerCollider.IsTouchingLayers(LayerMask.GetMask("Floor")) || playerCollider.IsTouchingLayers(LayerMask.GetMask("Ghost")))
+        if (playerFloorCollider.IsTouchingLayers(LayerMask.GetMask("Floor")) || playerFloorCollider.IsTouchingLayers(LayerMask.GetMask("Ghost")))
         {
             float jumpX = rb.velocity.x;
             float jumpY = jumpSpeed;
 
             rb.velocity = new Vector2(jumpX, jumpY);
         }
+    }
+
+    private void Move()
+    {
+        float velocityX = movement.ReadValue<Vector2>().x * speed;
+        float velocityY = rb.velocity.y;
+
+        rb.velocity = new Vector2(velocityX, velocityY);
     }
 }
